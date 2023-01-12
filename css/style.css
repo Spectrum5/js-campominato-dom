@@ -1,0 +1,53 @@
+body {
+    background-color: aquamarine;
+    height: 100vh;
+    color: black;
+}
+
+/* header */
+
+header,footer {
+    background-color: white ;
+    height: 100px;
+}
+
+.logo-img {
+    height: 100px;
+    width: 100px;
+}
+
+#my-btn, #difficulty {
+    padding: 3px 15px;
+}
+
+/* Main */
+
+.container {
+    width: 70vh;
+    height: 70vh;
+    text-align: center;
+    line-height: 70px;
+    cursor: pointer;
+}
+
+.div-10 {
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+    border: 1px solid black;
+}
+
+.div-9 {
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+    border: 1px solid black;
+}
+
+.div-7 {
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+    border: 1px solid black;
+}
+
+.bg-blue {
+    background-color: blue;
+}
