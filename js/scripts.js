@@ -16,32 +16,40 @@ function generator(location,number,divSize){
 
             if(clickNumb.includes(cellBlock.innerHTML) === false){
                 clickNumb.push(cellBlock.innerHTML);
-                if(bombe.includes(Number(cellBlock.innerHTML))){
-                    this.classList.add("bg-red");
-                    
-                    gameOver = true;
-                    if(gameOver ==true){
-                        for( let i = 0; i < bombe.length; i++){
-                            if(divSize == `div-10`){
-                                document.querySelector(`.div-10:nth-child(${bombe[i]})`).classList.add(`bg-red`);
-                            }
-                            else if(divSize == `div-9`){
-                                document.querySelector(`.div-9:nth-child(${bombe[i]})`).classList.add(`bg-red`);
-                            }
-                            else if(divSize == `div-7`){
-                                document.querySelector(`.div-7:nth-child(${bombe[i]})`).classList.add(`bg-red`);
-                            }
-                        }
-                        alert(`hai perso la partita con il punteggio di: ${points}`);
-                        
-                    }
+                if (gameOver == true){
+                
+                }
 
-                }else{
-                    this.classList.add("bg-blue");
-                    points+=1
-                    document.getElementById(`score`).innerHTML = `il tuo punteggio : ${points}`
-                } 
-                console.log(points )
+                else {
+                    if(bombe.includes(Number(cellBlock.innerHTML))){
+                        this.classList.add("bg-red");
+                        
+                        gameOver = true;
+                        console.log("Game Over", gameOver);
+                        if(gameOver == true){
+                            for( let i = 0; i < bombe.length; i++){
+                                if(divSize == `div-10`){
+                                    document.querySelector(`.div-10:nth-child(${bombe[i]})`).classList.add(`bg-red`);
+                                }
+                                else if(divSize == `div-9`){
+                                    document.querySelector(`.div-9:nth-child(${bombe[i]})`).classList.add(`bg-red`);
+                                }
+                                else if(divSize == `div-7`){
+                                    document.querySelector(`.div-7:nth-child(${bombe[i]})`).classList.add(`bg-red`);
+                                }
+                            }
+                            alert(`hai perso la partita con il punteggio di: ${points}`);
+                        }
+    
+                    }else{
+                        console.log("GameOver", gameOver)
+                        this.classList.add("bg-blue");
+                        points+=1
+                        document.getElementById(`score`).innerHTML = `il tuo punteggio : ${points}`
+                    }
+                }
+ 
+                console.log(points)
                 if(points === number - 16){
                     alert(`hai vinto la partita con il punteggio di: ${points}`);
                     window.location.reload();
