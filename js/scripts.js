@@ -33,7 +33,7 @@ function generator(location,number,divSize){
                             }
                         }
                         alert(`hai perso la partita con il punteggio di: ${points}`);
-                        window.location.reload();
+                        
                     }
 
                 }else{
