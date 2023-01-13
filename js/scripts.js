@@ -1,11 +1,12 @@
 let clickNumb = [];
 let bombe =[];
 let points = 0;
-let difficulty = document.getElementById(`difficulty`).value;
+
+let gameOver = false;
 
 function generator(location,number,divSize){
 
-    for(i = 1; i <= number; i++){          
+    for(let i = 1; i <= number; i++){          
         let cellBlock = document.createElement(`div`);
         cellBlock.classList.add(divSize);
         cellBlock.innerHTML = i;
@@ -16,9 +17,25 @@ function generator(location,number,divSize){
             if(clickNumb.includes(cellBlock.innerHTML) === false){
                 clickNumb.push(cellBlock.innerHTML);
                 if(bombe.includes(Number(cellBlock.innerHTML))){
-                    this.classList.add("bg-red");      
-                    alert(`hai perso la partita`);
-                    window.location.reload();
+                    this.classList.add("bg-red");
+                    
+                    gameOver = true;
+                    if(gameOver ==true){
+                        for( let i = 0; i < bombe.length; i++){
+                            if(divSize == `div-10`){
+                                document.querySelector(`.div-10:nth-child(${bombe[i]})`).classList.add(`bg-red`);
+                            }
+                            else if(divSize == `div-9`){
+                                document.querySelector(`.div-9:nth-child(${bombe[i]})`).classList.add(`bg-red`);
+                            }
+                            else if(divSize == `div-7`){
+                                document.querySelector(`.div-7:nth-child(${bombe[i]})`).classList.add(`bg-red`);
+                            }
+                        }
+                        alert(`hai perso la partita con il punteggio di: ${points}`);
+                        window.location.reload();
+                    }
+
                 }else{
                     this.classList.add("bg-blue");
                     points+=1
@@ -26,7 +43,7 @@ function generator(location,number,divSize){
                 } 
                 console.log(points )
                 if(points === number - 16){
-                    alert(`hai vinto la partita`);
+                    alert(`hai vinto la partita con il punteggio di: ${points}`);
                     window.location.reload();
                 }
             } 
@@ -54,7 +71,7 @@ const container = document.querySelector(`.container`);
 const btnGenerator = document.getElementById(`my-btn`);
 const Generator = btnGenerator.addEventListener(`click`, function(){
 
-    difficulty = document.getElementById(`difficulty`).value;
+    let difficulty = document.getElementById(`difficulty`).value;
     container.innerHTML = ``;
         if(difficulty === `easy`){ 
             bombs(bombe, 100);
