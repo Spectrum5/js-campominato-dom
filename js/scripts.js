@@ -17,7 +17,6 @@ function generator(location,number,divSize){
             if(clickNumb.includes(cellBlock.innerHTML) === false){
                 clickNumb.push(cellBlock.innerHTML);
                 if (gameOver == true){
-                
                 }
 
                 else {
